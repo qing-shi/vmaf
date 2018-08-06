@@ -73,7 +73,7 @@ void* combo_threadfunc(void* vmaf_thread_data)
     void* user_data = thread_data->user_data;
     const char* fmt = thread_data->fmt;
     int n_subsample = thread_data->n_subsample;
-
+    int(*read_frame)(float *ref_data, float *main_data, float *temp_data, int stride, void *user_data) = thread_data->read_frame;
     double score = 0;
     double score2 = 0;
     double scores[4*2];
